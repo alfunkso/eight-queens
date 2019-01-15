@@ -20,7 +20,7 @@ export default {
             idle: "#6E07B8",
             moving: "#9441D0",
             removing: "#42036F",
-            border: "#FFFFFF",
+            border: "#000000",
         },
     },
     header: {

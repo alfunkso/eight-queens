@@ -1,0 +1,10 @@
+
+.Piece img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.Piece svg, .Piece svg g {
+    fill: #ffffff;
+    stroke: #000000;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Palette from './Palette';
 import Piece from './Piece';
+import PieceModel from './PieceModel';
 import './Tile.css'
 
 const debug = require('debug')('alfunkso.net:Tile');
@@ -13,13 +14,7 @@ function Tile({color, highlighted, piece}) {
             className="Tile"
             style={{backgroundColor: Palette.tile[color][highlighted ? "highlight" : "main"] }}
         >
-            {
-                piece != null &&
-                <span style={{color: Palette.piece[piece.color][piece.status]}}>
-                    {piece.kind}
-                </span>
-            }
-
+            { piece != null && <Piece piece={piece} /> }
         </td>
     );
 }
@@ -27,7 +22,7 @@ function Tile({color, highlighted, piece}) {
 Tile.propTypes = {
     color: PropTypes.string.isRequired,
     highlighted: PropTypes.bool,
-    piece: PropTypes.instanceOf(Piece),
+    piece: PropTypes.instanceOf(PieceModel),
 };
 
 Tile.defaultProps = {
