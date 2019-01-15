@@ -11,13 +11,13 @@ export default {
     },
     piece: {
         white: {
-            main: "#FFF800",
+            idle: "#FFF800",
             moving: "#FFFA43",
             removing: "#A5A100",
             border: "#FFFFFF",
         },
         black: {
-            main: "#6E07B8",
+            idle: "#6E07B8",
             moving: "#9441D0",
             removing: "#42036F",
             border: "#FFFFFF",
