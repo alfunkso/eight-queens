@@ -12,14 +12,14 @@ class App extends React.PureComponent {
 
         this.state = {
             pieces: [
-                [null, null, null, null, null, new Piece("queen", "black", "idle", {}), null, null,],
-                [null, null, null, new Piece("queen", "black", "idle", {}), null, null, null, null,],
-                [null, null, null, null, null, null, new Piece("queen", "black", "idle", {}), null,],
-                [new Piece("queen", "black", "idle", {}), null, null, null, null, null, null, null,],
-                [null, null, null, null, null, null, null, new Piece("queen", "black", "idle", {}),],
-                [null, new Piece("queen", "black", "idle", {}), null, null, null, null, null, null,],
-                [null, null, null, null, new Piece("queen", "black", "idle", {}), null, null, null,],
-                [null, null, new Piece("queen", "black", "idle", {}), null, null, null, null, null,],
+                [null, null, null, null, null, new Piece("queen", "black", "idle", {i:0,j:5}), null, null,],
+                [null, null, null, new Piece("queen", "black", "idle", {i:1,j:3}), null, null, null, null,],
+                [null, null, null, null, null, null, new Piece("queen", "black", "idle", {i:2,j:6}), null,],
+                [new Piece("queen", "black", "idle", {i:3,j:0}), null, null, null, null, null, null, null,],
+                [null, null, null, null, null, null, null, new Piece("queen", "black", "idle", {i:4,j:7}),],
+                [null, new Piece("queen", "black", "idle", {i:5,j:1}), null, null, null, null, null, null,],
+                [null, null, null, null, new Piece("queen", "black", "idle", {i:6,j:4}), null, null, null,],
+                [null, null, new Piece("queen", "black", "idle", {i:7,j:2}), null, null, null, null, null,],
             ],
         };
     }
