@@ -13,8 +13,8 @@ class App extends React.PureComponent {
         this.state = {
             pieces: [
                 [null, null, null, null, null, new PieceModel("queen", "black", "idle", {i:0,j:5}), null, null,],
-                [null, null, null, new PieceModel("queen", "black", "idle", {i:1,j:3}), null, null, null, null,],
-                [null, null, null, null, null, null, new PieceModel("queen", "black", "idle", {i:2,j:6}), null,],
+                [null, null, null, new PieceModel("queen", "black", "moving", {i:1,j:3}), null, null, null, null,],
+                [null, null, null, null, null, null, new PieceModel("queen", "black", "removing", {i:2,j:6}), null,],
                 [new PieceModel("queen", "black", "idle", {i:3,j:0}), null, null, null, null, null, null, null,],
                 [null, null, null, null, null, null, null, new PieceModel("queen", "black", "idle", {i:4,j:7}),],
                 [null, new PieceModel("queen", "black", "idle", {i:5,j:1}), null, null, null, null, null, null,],

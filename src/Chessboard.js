@@ -35,6 +35,7 @@ function Chessboard({pieces}) {
                 <Tile
                     color={(i+j)%2 === 0 ? "white" : "black"}
                     piece={pieces[i][j]}
+                    highlighted={i===1 || j === 3}
                 />
                 );
         }

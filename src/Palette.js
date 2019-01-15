@@ -1,12 +1,12 @@
 export default {
     tile: {
         white: {
-            main: "#FF7C00",
+            main: "#D56800",
             highlight: "#FF9F43",
         },
         black: {
             main: "#008F5D",
-            highlight: "#0BCE89",
+            highlight: "#37D09A",
         },
     },
     piece: {
@@ -17,8 +17,8 @@ export default {
             border: "#FFFFFF",
         },
         black: {
-            idle: "#6E07B8",
-            moving: "#9441D0",
+            idle: "#8117CE",
+            moving: "#FFFA43",
             removing: "#42036F",
             border: "#000000",
         },
