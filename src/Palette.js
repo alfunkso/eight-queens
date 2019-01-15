@@ -1,26 +1,42 @@
 export default {
     tile: {
         white: {
-            main: "#D56800",
-            highlight: "#FF9F43",
+            main: "#8C34CC",
+            highlight: "#ffb133",
         },
         black: {
-            main: "#008F5D",
-            highlight: "#37D09A",
+            main: "#210138",
+            highlight: "#9c6000",
         },
     },
     piece: {
         white: {
-            idle: "#FFF800",
-            moving: "#FFFA43",
-            removing: "#A5A100",
-            border: "#FFFFFF",
+            idle: {
+                fill: "#0BD600",
+                stroke: "#034400",
+            },
+            moving: {
+                fill: "#FFF800",
+                stroke: "#545200",
+            },
+            removing: {
+                fill: "#B87100",
+                stroke: "#000000",
+            },
         },
         black: {
-            idle: "#8117CE",
-            moving: "#FFFA43",
-            removing: "#42036F",
-            border: "#000000",
+            idle: {
+                fill: "#00B877",
+                stroke: "#000000",
+            },
+            moving: {
+                fill: "#FF7C00",
+                stroke: "#000000",
+            },
+            removing: {
+                fill: "#003824",
+                stroke: "#000000",
+            },
         },
     },
     header: {

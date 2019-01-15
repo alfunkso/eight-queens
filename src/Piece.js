@@ -24,12 +24,12 @@ function Piece({piece}) {
             >
                 <g
                     style={{
-                        fill: Palette.piece[piece.color][piece.status],
-                        stroke: Palette.piece[piece.color].border,
+                        fill: Palette.piece[piece.color][piece.status].fill,
+                        stroke: Palette.piece[piece.color][piece.status].stroke,
                         opacity: 1,
                         fillOpacity: 1,
                         fillRule: "evenodd",
-                        strokeWidth: 1.25,
+                        strokeWidth: 1.5,
                         strokeLinecap: "round",
                         strokeLinejoin: "round",
                         strokeMiterlimit: 4,
