@@ -1,3 +1,8 @@
+# The Eight Queens Puzzle
+A graphical representation of the eight queens puzzle solution by brute force.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
