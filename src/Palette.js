@@ -25,6 +25,6 @@ export default {
     },
     header: {
         background: "#000000",
-        foreground: "#FFFFFF",
+        foreground: "#aeaeae",
     },
 };

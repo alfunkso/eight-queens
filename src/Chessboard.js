@@ -6,7 +6,7 @@ import './Chessboard.css';
 
 const debug = require('debug')('alfunkso.net:Chessboard');
 
-function Chessboard() {
+function Chessboard({pieces}) {
     debug("Rendering...");
 
     let rows = [];
@@ -34,6 +34,7 @@ function Chessboard() {
             cells.push(
                 <Tile
                     color={(i+j)%2 === 0 ? "white" : "black"}
+                    piece={pieces[i][j]}
                 />
                 );
         }
@@ -67,8 +68,8 @@ function Chessboard() {
     );
 }
 
-Chessboard.propTypes = {};
-
-Chessboard.defaultProps = {};
+Chessboard.propTypes = {
+    pieces: PropTypes.array.isRequired,
+};
 
 export default Chessboard;
