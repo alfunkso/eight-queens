@@ -1,5 +1,6 @@
 import React from 'react';
 import Chessboard from './Chessboard'
+import Footer from './Footer';
 import './App.css';
 
 const debug = require('debug')('alfunkso.net:App');
@@ -14,6 +15,7 @@ function App() {
           <div className="BoardContainer">
               <Chessboard />
           </div>
+          <Footer />
       </div>
   );
 }
