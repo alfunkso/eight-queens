@@ -28,9 +28,6 @@ class App extends React.PureComponent {
         debug("Rendering...");
         return (
             <div className="App">
-                <header className="AppHeader">
-                    The 8 Queens Puzzle
-                </header>
                 <div className="BoardContainer">
                     <Chessboard pieces={this.state.pieces} />
                 </div>
