@@ -25,6 +25,7 @@ class App extends React.PureComponent {
                     [null, null, new PieceModel("queen", "white", "idle", {i:7,j:2}), null, null, null, null, null,],
                 ],
                 delay: 200,
+                solving: false,
             }),
         };
 
@@ -39,6 +40,7 @@ class App extends React.PureComponent {
 
     handleStart() {
         debug("Start");
+        this.setState(({data}) => ({data: data.set("solving", true)}));
     }
 
     render() {
@@ -47,6 +49,7 @@ class App extends React.PureComponent {
             <div className="App">
                 <div className="OptionsContainer">
                     <Options
+                        solving={this.state.data.get("solving")}
                         delay={this.state.data.get("delay")}
                         onStart={this.handleStart}
                         onDelayChange={this.handleDelayChange}

@@ -4,15 +4,16 @@ import './styles/Options.css';
 
 const debug = require('debug')('alfunkso.net:Options');
 
-function Options({delay, onStart, onDelayChange}) {
+function Options({solving, delay, onStart, onDelayChange}) {
     debug("Rendering...");
     return (
         <div className="Options">
             <button
                 id="start"
                 onClick={onStart}
+                disabled={solving}
             >
-                Start
+                {solving ? "Solving..." : "Start"}
             </button>
             <div className="DelayControl">
                 <label htmlFor="delay">Delay: {delay}ms</label>
@@ -31,11 +32,14 @@ function Options({delay, onStart, onDelayChange}) {
 }
 
 Options.propTypes = {
+    solving: PropTypes.bool,
     delay: PropTypes.number.isRequired,
     onStart: PropTypes.func.isRequired,
     onDelayChange: PropTypes.func.isRequired,
 };
 
-Options.defaultProps = {};
+Options.defaultProps = {
+    solving: false,
+};
 
 export default Options;

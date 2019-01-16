@@ -15,7 +15,6 @@
     padding: 0.5em;
 }
 
-
 .Options #start:hover {
     background: #ffb133;
 }
@@ -24,8 +23,15 @@
     background: #9c6000;
 }
 
+.Options #start[disabled] {
+    color: #aeaeae;
+    cursor: auto;
+    background: transparent;
+}
+
 .Options .DelayControl {
     display: flex;
     flex-flow: column nowrap;
-    margin: 1em 0 0;
+    margin: 2em 0 0;
+    color: #aeaeae;
 }
