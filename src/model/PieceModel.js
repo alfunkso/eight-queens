@@ -1,4 +1,4 @@
-class PieceModel {
+export default class PieceModel {
     constructor(kind, color, status, position) {
         this.kind = kind;
         this.color = color;
@@ -6,5 +6,3 @@ class PieceModel {
         this.position = position;
     }
 }
-
-export default PieceModel;

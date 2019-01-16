@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Palette from './Palette';
 import Piece from './Piece';
-import PieceModel from './PieceModel';
-import './styles/Tile.css'
+import PieceModel from '../model/PieceModel';
+import '../styles/Tile.css'
 
 const debug = require('debug')('alfunkso.net:Tile');
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Tile from './Tile';
 import {Collection} from 'immutable';
-import './styles/Chessboard.css';
+import '../styles/Chessboard.css';
 
 const debug = require('debug')('alfunkso.net:Chessboard');
 

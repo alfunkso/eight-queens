@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Palette from "./Palette";
-import PieceModel from './PieceModel';
-import './styles/Piece.css';
+import PieceModel from '../model/PieceModel';
+import '../styles/Piece.css';
 
 const debug = require('debug')('alfunkso.net:Piece');
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import Chessboard from './Chessboard'
 import Footer from './Footer';
-import PieceModel from './PieceModel';
+import PieceModel from '../model/PieceModel';
 import Options from './Options';
 import {fromJS} from 'immutable';
-import './styles/App.css';
+import '../styles/App.css';
 
 const debug = require('debug')('alfunkso.net:App');
 
