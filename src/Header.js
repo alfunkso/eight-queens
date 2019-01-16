@@ -14,7 +14,7 @@ function Header({label}) {
 }
 
 Header.propTypes = {
-    label: PropTypes.string.isRequired
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 };
 
 export default Header;

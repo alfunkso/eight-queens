@@ -8,7 +8,12 @@ function Options({delay, onStart, onDelayChange}) {
     debug("Rendering...");
     return (
         <div className="Options">
-            <button id="start">Start</button>
+            <button
+                id="start"
+                onClick={onStart}
+            >
+                Start
+            </button>
             <div className="DelayControl">
                 <label htmlFor="delay">Delay: {delay}ms</label>
                 <input
@@ -18,6 +23,7 @@ function Options({delay, onStart, onDelayChange}) {
                     min={0}
                     max={2000}
                     value={delay}
+                    onChange={onDelayChange}
                 />
             </div>
         </div>
@@ -26,8 +32,8 @@ function Options({delay, onStart, onDelayChange}) {
 
 Options.propTypes = {
     delay: PropTypes.number.isRequired,
-    onStart: PropTypes.func,
-    onDelayChang: PropTypes.func,
+    onStart: PropTypes.func.isRequired,
+    onDelayChange: PropTypes.func.isRequired,
 };
 
 Options.defaultProps = {};

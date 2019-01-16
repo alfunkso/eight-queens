@@ -43,7 +43,15 @@ class Footer extends React.PureComponent {
                 <span>|</span>
                 <span>Alfonso Cornejo 2019</span>
                 <span>|</span>
-                <span><a href="https://alfunkso.net">https://alfunkso.net</a></span>
+                <span>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://alfunkso.net"
+                    >
+                        https://alfunkso.net
+                    </a>
+                </span>
             </footer>
         );
     }

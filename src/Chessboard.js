@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Tile from './Tile';
+import {Collection} from 'immutable';
 import './styles/Chessboard.css';
 
 const debug = require('debug')('alfunkso.net:Chessboard');
@@ -12,7 +13,7 @@ function Chessboard({pieces}) {
     let rows = [];
 
     rows.push(
-        <tr>
+        <tr key="r0">
             <Header label="" />
             <Header label="A" />
             <Header label="B" />
@@ -28,25 +29,26 @@ function Chessboard({pieces}) {
 
     for ( let i = 0; i < 8; ++i ) {
         let cells = [];
-        cells.push(<Header label={8-i} />);
+        cells.push(<Header key={`ht${8-i}`} label={8-i} />);
 
         for ( let j = 0; j < 8; ++j ) {
             cells.push(
                 <Tile
+                    key={`t${i}${j}`}
                     color={(i+j)%2 === 0 ? "white" : "black"}
-                    piece={pieces[i][j]}
+                    piece={pieces.getIn([i,j])}
                     highlighted={i===1 || j === 3}
                 />
                 );
         }
 
-        cells.push(<Header label={8-i} />);
+        cells.push(<Header key={8-i} label={8-i} />);
 
-        rows.push(<tr>{cells}</tr>);
+        rows.push(<tr key={`r${i+1}`}>{cells}</tr>);
     }
 
     rows.push(
-        <tr>
+        <tr key="r9">
             <Header label="" />
             <Header label="A" />
             <Header label="B" />
@@ -70,7 +72,7 @@ function Chessboard({pieces}) {
 }
 
 Chessboard.propTypes = {
-    pieces: PropTypes.array.isRequired,
+    pieces: PropTypes.instanceOf(Collection).isRequired,
 };
 
 export default Chessboard;
