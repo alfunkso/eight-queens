@@ -1,0 +1,31 @@
+.Options {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Options #start {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+
+.Options #start:hover {
+    background: #ffb133;
+}
+
+.Options #start:active {
+    background: #9c6000;
+}
+
+.Options .DelayControl {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1em 0 0;
+}

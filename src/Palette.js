@@ -20,7 +20,7 @@ export default {
                 stroke: "#545200",
             },
             removing: {
-                fill: "#B87100",
+                fill: "#034400",
                 stroke: "#000000",
             },
         },

@@ -2,6 +2,7 @@ import React from 'react';
 import Chessboard from './Chessboard'
 import Footer from './Footer';
 import PieceModel from './PieceModel';
+import Options from './Options';
 import './styles/App.css';
 
 const debug = require('debug')('alfunkso.net:App');
@@ -28,6 +29,9 @@ class App extends React.PureComponent {
         debug("Rendering...");
         return (
             <div className="App">
+                <div className="OptionsContainer">
+                    <Options delay={10} />
+                </div>
                 <div className="BoardContainer">
                     <Chessboard pieces={this.state.pieces} />
                 </div>
