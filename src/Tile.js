@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Palette from './Palette';
 import Piece from './Piece';
 import PieceModel from './PieceModel';
-import './Tile.css'
+import './styles/Tile.css'
 
 const debug = require('debug')('alfunkso.net:Tile');
 
