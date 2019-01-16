@@ -1,6 +1,7 @@
 import FrameModel from "./FrameModel";
 import PieceModel from "./PieceModel";
 import PosModel from "./PosModel";
+import * as PieceStatuses from './PieceStatuses';
 
 export function initial() {
     const initialPiece = new PieceModel("queen", "white", "moving", new PosModel(7,0));
@@ -34,7 +35,17 @@ export function nextFrame(prevFrame) {
         throw new Error("The solution has already finished solving");
     }
 
+    const lastPiece = prevFrame.lastPiece;
 
+    if ( lastPiece.status === PieceStatuses.IDLE ) {
+        // TODO
+    } else if ( lastPiece.status === PieceStatuses.MOVING ) {
+        // TODO
+    } else if ( lastPiece.status === PieceStatuses.REMOVING ) {
+        // TODO
+    }
+
+    return prevFrame;
 }
 
 /**
