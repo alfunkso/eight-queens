@@ -36,7 +36,7 @@ function Chessboard({pieces}) {
                 <Tile
                     key={`t${i}${j}`}
                     color={(i+j)%2 === 0 ? "white" : "black"}
-                    piece={pieces.getIn([i,j])}
+                    piece={pieces[i][j]}
                     highlighted={i===1 || j === 3}
                 />
                 );
