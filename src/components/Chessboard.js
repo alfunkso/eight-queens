@@ -72,7 +72,7 @@ function Chessboard({pieces}) {
 }
 
 Chessboard.propTypes = {
-    pieces: PropTypes.instanceOf(Collection).isRequired,
+    pieces: PropTypes.array.isRequired,
 };
 
 export default Chessboard;

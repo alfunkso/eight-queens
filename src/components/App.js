@@ -1,9 +1,11 @@
 import React from 'react';
 import Chessboard from './Chessboard'
 import Footer from './Footer';
+import Options from './Options';
+import FrameModel from '../model/FrameModel';
 import PieceModel from '../model/PieceModel';
 import Pos from '../model/PosModel';
-import Options from './Options';
+import * as Solution from '../model/Solution';
 import '../styles/App.css';
 
 const debug = require('debug')('alfunkso.net:App');
@@ -13,16 +15,20 @@ class App extends React.PureComponent {
         super(props);
 
         this.state = {
-            pieces: [
-                [null, null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(0,5)), null, null,],
-                [null, null, null, new PieceModel("queen", "white", "moving", new Pos(1,3)), null, null, null, null,],
-                [null, null, null, null, null, null, new PieceModel("queen", "white", "removing", new Pos(2,6)), null,],
-                [new PieceModel("queen", "white", "removing", new Pos(3,0)), null, null, null, null, null, null, null,],
-                [null, null, null, null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(4,7)),],
-                [null, new PieceModel("queen", "white", "idle", new Pos(5,1)), null, null, null, null, null, null,],
-                [null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(6,4)), null, null, null,],
-                [null, null, new PieceModel("queen", "white", "idle", new Pos(7,2)), null, null, null, null, null,],
-            ],
+            currentFrame: new FrameModel(
+                [
+                    [null, null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(0,5)), null, null,],
+                    [null, null, null, new PieceModel("queen", "white", "moving", new Pos(1,3)), null, null, null, null,],
+                    [null, null, null, null, null, null, new PieceModel("queen", "white", "removing", new Pos(2,6)), null,],
+                    [new PieceModel("queen", "white", "removing", new Pos(3,0)), null, null, null, null, null, null, null,],
+                    [null, null, null, null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(4,7)),],
+                    [null, new PieceModel("queen", "white", "idle", new Pos(5,1)), null, null, null, null, null, null,],
+                    [null, null, null, null, new PieceModel("queen", "white", "idle", new Pos(6,4)), null, null, null,],
+                    [null, null, new PieceModel("queen", "white", "idle", new Pos(7,2)), null, null, null, null, null,],
+                ],
+                null,
+                null,
+            ),
             delay: 200,
             solving: false,
         };
@@ -37,7 +43,10 @@ class App extends React.PureComponent {
 
     handleStart() {
         debug("Start");
-        this.setState({solving: true});
+        this.setState({
+            solving: true,
+            currentFrame: Solution.initial(),
+        });
     }
 
     render() {
@@ -53,7 +62,7 @@ class App extends React.PureComponent {
                     />
                 </div>
                 <div className="BoardContainer">
-                    <Chessboard pieces={this.state.pieces} />
+                    <Chessboard pieces={this.state.currentFrame.board} />
                 </div>
                 <Footer />
             </div>

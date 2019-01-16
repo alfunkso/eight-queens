@@ -4,6 +4,10 @@ export default class PosModel {
         this.j = j;
     }
 
+    isLastColumn() {
+        return this.j === 7;
+    }
+
     isWithinBoard() {
         return this.i >= 0 && this.i <= 7 && this.j >= 0 && this.j <= 7;
     }
