@@ -1,4 +1,4 @@
-import * as ThreatTypes from "./ThreatTypes";
+import ThreatTypes from "./ThreatTypes";
 import ThreatModel from './ThreatModel';
 
 export default class PieceModel {
@@ -7,12 +7,11 @@ export default class PieceModel {
         this.color = color;
         this.status = status;
         this.position = position;
-        this.threatsByType = {
-            [ThreatTypes.NS]: this.getThreatenedBoardByType(ThreatTypes.NS),
-            [ThreatTypes.EW]: this.getThreatenedBoardByType(ThreatTypes.EW),
-            [ThreatTypes.NWSE]: this.getThreatenedBoardByType(ThreatTypes.NWSE),
-            [ThreatTypes.NESW]: this.getThreatenedBoardByType(ThreatTypes.NESW),
-        };
+        this.threatsByType = {};
+
+        for (let i = 0; i < ThreatTypes.length; ++i) {
+            this.threatsByType[ThreatTypes[i]] = this.getThreatenedBoardByType(ThreatTypes[i]);
+        }
     }
 
     getThreatenedBoardByType(threatType) {

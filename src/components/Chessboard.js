@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Tile from './Tile';
-import {Collection} from 'immutable';
 import '../styles/Chessboard.css';
 
 const debug = require('debug')('alfunkso.net:Chessboard');
@@ -36,7 +35,7 @@ function Chessboard({pieces}) {
                 <Tile
                     key={`t${i}${j}`}
                     color={(i+j)%2 === 0 ? "white" : "black"}
-                    piece={pieces[i][j]}
+                    piece={pieces.getIn([i,j])}
                     highlighted={i===1 || j === 3}
                 />
                 );

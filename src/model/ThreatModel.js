@@ -1,5 +1,5 @@
-import * as ThreatTypes from "./ThreatTypes";
 import PosModel from "./PosModel";
+import * as ThreatTypes from "./ThreatTypes";
 
 export default class ThreatModel {
     constructor(position, type) {
