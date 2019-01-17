@@ -1,4 +1,4 @@
-import {fromJS} from 'immutable';
+import BoardModel from './BoardModel';
 import FrameModel from "./FrameModel";
 import PieceModel from "./PieceModel";
 import PosModel from "./PosModel";
@@ -6,39 +6,12 @@ import ThreatTypes from "./ThreatTypes";
 import * as PieceStatuses from './PieceStatuses';
 
 export function example() {
-    return new FrameModel(
-        fromJS([
-            [null, null, null, null, null, new PieceModel("queen", "white", "idle", new PosModel(0,5)), null, null,],
-            [null, null, null, new PieceModel("queen", "white", "moving", new PosModel(1,3)), null, null, null, null,],
-            [null, null, null, null, null, null, new PieceModel("queen", "white", "removing", new PosModel(2,6)), null,],
-            [new PieceModel("queen", "white", "removing", new PosModel(3,0)), null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, new PieceModel("queen", "white", "idle", new PosModel(4,7)),],
-            [null, new PieceModel("queen", "white", "idle", new PosModel(5,1)), null, null, null, null, null, null,],
-            [null, null, null, null, new PieceModel("queen", "white", "idle", new PosModel(6,4)), null, null, null,],
-            [null, null, new PieceModel("queen", "white", "idle", new PosModel(7,2)), null, null, null, null, null,],
-        ]),
-        null,
-        null,
-    );
+    return new FrameModel(new BoardModel().setupExample(), null, null);
 }
 
 export function initial() {
     const initialPiece = new PieceModel("queen", "white", "moving", new PosModel(7,0));
-
-    return new FrameModel(
-        fromJS([
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [null, null, null, null, null, null, null, null,],
-            [initialPiece, null, null, null, null, null, null, null,],
-        ]),
-        null,
-        initialPiece,
-    );
+    return new FrameModel(new BoardModel().addPiece(initialPiece), null, initialPiece);
 }
 
 export function nextFrame(prevFrame) {
@@ -59,16 +32,19 @@ export function nextFrame(prevFrame) {
     } else if ( lastPiece.status === PieceStatuses.MOVING ) {
         // TODO
     } else if ( lastPiece.status === PieceStatuses.REMOVING ) {
-        let board = removePiece(prevBoard, lastPiece.position);
-        board = advancePieceAt(board, lastPiece.position.j - 1);
-        // TODO: Get reference of moved piece and find threats
+        const lastPos = lastPiece.position;
+        let board = prevBoard.removePiece(lastPos);
+        const newPiece = board.movePiece(lastPos.j-1, new PosModel(-1,0));
+        newPiece.status = PieceStatuses.MOVING;
+        const threat = findThreat(board, newPiece.position);
+        return new FrameModel(board, threat, newPiece);
     }
 
 }
 
 function findThreat(board, pos) {
     for ( let j = pos.j-1; j >= 0; --j ) {
-        const cdt = findPieceIn(board, j);
+        const cdt = board.findPieceAt(j);
 
         for ( let t = 0; t < ThreatTypes.length; ++t ) {
             if (cdt.threatsByType[ThreatTypes[t]][pos.i][pos.j]) {
@@ -78,38 +54,4 @@ function findThreat(board, pos) {
     }
 
     return null;
-}
-
-function advancePieceAt(board, j) {
-    const pieceToMove = findPieceIn(board, j);
-    const lastPos = pieceToMove.position;
-    const nextPos = lastPos.add(new PosModel(0,-1));
-    if ( nextPos.isWithinBoard() ) {
-        let nextBoard = addPiece(board, nextPos, new PieceModel("queen", "white", PieceStatuses.MOVING, nextPos));
-        return removePiece(nextBoard, lastPos);
-    } else {
-        pieceToMove.status = PieceStatuses.REMOVING;
-        return board;
-    }
-}
-
-function removePiece(board, pos) {
-    return board.deleteIn([pos.i, pos.j]);
-}
-
-function addPiece(board, pos, piece) {
-    return board.setIn([pos.i, pos.j], piece);
-}
-
-function findPrevPiece(board, lastPiece) {
-    return findPieceIn(board, lastPiece.position.j - 1);
-}
-
-function findPieceIn(board, j) {
-    for ( let i = 0; i < 8; ++i ) {
-        const cdt = board.getIn([i, j]);
-        if ( cdt != null ) { return cdt; }
-    }
-
-    throw new Error("Can't find pieve at j: " + j);
 }

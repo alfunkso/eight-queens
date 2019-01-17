@@ -46,7 +46,7 @@ class App extends React.PureComponent {
                     />
                 </div>
                 <div className="BoardContainer">
-                    <Chessboard pieces={this.state.currentFrame.board} />
+                    <Chessboard pieces={this.state.currentFrame.board.matrix} />
                 </div>
                 <Footer />
             </div>
