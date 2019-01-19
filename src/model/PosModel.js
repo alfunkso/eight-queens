@@ -20,4 +20,7 @@ export default class PosModel {
         return this.i === pos.i && this.j === pos.j;
     }
 
+    copy() {
+        return new PosModel(this.i, this.j);
+    }
 }

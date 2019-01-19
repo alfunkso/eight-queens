@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Options.css';
 
-const debug = require('debug')('alfunkso.net:Options');
-
 function Options({solving, delay, onStart, onDelayChange}) {
-    debug("Rendering...");
     return (
         <div className="Options">
             <button

@@ -1,6 +1,9 @@
 import PosModel from "./PosModel";
 import * as ThreatTypes from "./ThreatTypes";
 
+// eslint-disable-next-line no-unused-vars
+const debug = require('debug')('alfunkso.net:ThreatModel');
+
 export default class ThreatModel {
     constructor(position, type) {
         this.position = position;
@@ -8,9 +11,13 @@ export default class ThreatModel {
     }
 
     threatenedBoard() {
-        const result = Array(8).fill(Array(8).fill(false));
+        let result = Array(8);
+        for ( let i = 0; i < 8; ++i ) {
+            result[i] = Array(8).fill(false);
+        }
 
         const [dir1, dir2] = ThreatModel.threatDirections(this.type);
+
         for ( let cdt = this.position; cdt.isWithinBoard(); cdt = cdt.add(dir1) ) {
             result[cdt.i][cdt.j] = true;
         }
@@ -39,5 +46,18 @@ export default class ThreatModel {
             default:
                 throw new Error("Unknown threatType: " + threatType);
         }
+    }
+
+    static toString(threatenedBoard) {
+        let res = "\n";
+
+        for ( let i = 0; i < 8; ++i ) {
+            for ( let j = 0; j < 8; ++j ) {
+                res += `${threatenedBoard[i][j] ? 1 : 0} `;
+            }
+            res += "\n";
+        }
+
+        return res += "\n";
     }
 }

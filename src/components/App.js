@@ -22,7 +22,7 @@ class App extends React.PureComponent {
     }
     
     handleDelayChange(event) {
-        this.setState({delay: event.target.value});
+        this.setState({delay: Number(event.target.value)});
     }
 
     handleStart() {
@@ -31,10 +31,19 @@ class App extends React.PureComponent {
             solving: true,
             currentFrame: Solution.initial(),
         });
+        setTimeout(() => this.frameTick(), this.state.delay);
+    }
+
+    frameTick() {
+        if ( this.state.currentFrame.isFinished() ) {
+            this.setState({solving: false});
+        } else {
+            this.setState( (prevState) => ({currentFrame: Solution.nextFrame(prevState.currentFrame)}));
+            setTimeout(() => this.frameTick(), this.state.delay);
+        }
     }
 
     render() {
-        debug("Rendering...");
         return (
             <div className="App">
                 <div className="OptionsContainer">
@@ -46,7 +55,10 @@ class App extends React.PureComponent {
                     />
                 </div>
                 <div className="BoardContainer">
-                    <Chessboard pieces={this.state.currentFrame.board.matrix} />
+                    <Chessboard
+                        pieces={this.state.currentFrame.board.matrix}
+                        highlights={this.state.currentFrame.threat}
+                    />
                 </div>
                 <Footer />
             </div>

@@ -4,10 +4,7 @@ import Palette from "./Palette";
 import PieceModel from '../model/PieceModel';
 import '../styles/Piece.css';
 
-const debug = require('debug')('alfunkso.net:Piece');
-
 function Piece({piece}) {
-    debug("Rendering...");
     return (
         <div
             className="Piece"

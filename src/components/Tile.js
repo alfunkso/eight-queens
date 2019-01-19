@@ -4,10 +4,7 @@ import Palette from './Palette';
 import Piece from './Piece';
 import PieceModel from '../model/PieceModel';
 
-const debug = require('debug')('alfunkso.net:Tile');
-
 function Tile({color, highlighted, piece}) {
-    debug("Rendering...");
     return (
         <td
             className="Tile"

@@ -4,11 +4,7 @@ import Header from './Header';
 import Tile from './Tile';
 import '../styles/Chessboard.css';
 
-const debug = require('debug')('alfunkso.net:Chessboard');
-
-function Chessboard({pieces}) {
-    debug("Rendering...");
-
+function Chessboard({pieces, highlights}) {
     let rows = [];
 
     rows.push(
@@ -36,7 +32,7 @@ function Chessboard({pieces}) {
                     key={`t${i}${j}`}
                     color={(i+j)%2 === 0 ? "white" : "black"}
                     piece={pieces.getIn([i,j])}
-                    highlighted={i===1 || j === 3}
+                    highlighted={highlights != null && highlights[i][j]}
                 />
                 );
         }
@@ -71,7 +67,8 @@ function Chessboard({pieces}) {
 }
 
 Chessboard.propTypes = {
-    pieces: PropTypes.array.isRequired,
+    pieces: PropTypes.object.isRequired,
+    highlights: PropTypes.array,
 };
 
 export default Chessboard;
