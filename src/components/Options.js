@@ -19,7 +19,7 @@ function Options({solving, delay, onStart, onDelayChange}) {
                     type="range"
                     step={10}
                     min={0}
-                    max={2000}
+                    max={1000}
                     value={delay}
                     onChange={onDelayChange}
                 />
