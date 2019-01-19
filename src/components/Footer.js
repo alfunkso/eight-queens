@@ -40,8 +40,8 @@ class Footer extends React.PureComponent {
                         What is this?
                     </button>
                 </span>
-                <span>|</span>
-                <span>Alfonso Cornejo 2019</span>
+                <span className="NameSeparator">|</span>
+                <span className="Name">Alfonso Cornejo 2019</span>
                 <span>|</span>
                 <span>
                     <a

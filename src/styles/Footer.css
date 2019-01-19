@@ -35,3 +35,12 @@
 .Footer .PopupButton {
     cursor: pointer;
 }
+
+@media screen and (max-width: 700px) {
+    .Footer .NameSeparator {
+        display: none;
+    }
+    .Footer .Name {
+        display: none;
+    }
+}

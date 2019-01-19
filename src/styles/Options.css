@@ -3,6 +3,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .Options #start {
@@ -10,17 +11,19 @@
     border: none;
     background: transparent;
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: pointer;
-    padding: 0.5em;
+    height: 42px;
+    margin-bottom: 21px;
+    padding: 0 2em;
 }
 
 .Options #start:hover {
-    background: #ffb133;
+    background: #0BD600;
 }
 
 .Options #start:active {
-    background: #9c6000;
+    background: #034400;
 }
 
 .Options #start[disabled] {
@@ -32,6 +35,13 @@
 .Options .DelayControl {
     display: flex;
     flex-flow: column nowrap;
-    margin: 2em 0 0;
+    height: 42px;
     color: #aeaeae;
+}
+
+@media screen and (max-width: 700px) {
+    .Options {
+        flex-flow: row nowrap;
+        align-items: start;
+    }
 }

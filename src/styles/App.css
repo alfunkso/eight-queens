@@ -4,11 +4,30 @@
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
+    padding-bottom: 32px;
 }
 
-.BoardContainer {
-    width: 100vw;
-    height: 100vw;
+.App .OptionsContainer {
+    min-width: 200px;
+}
+
+.App .BoardContainer {
+    width: calc(100vw - 200px);
+    height: calc(100vw - 200px);
     max-width: calc(100vh - 32px);
     max-height: calc(100vh - 32px);
+}
+
+@media screen and (max-width: 700px) {
+    .App {
+        flex-flow: column nowrap;
+        justify-content: space-between;
+    }
+
+    .App .BoardContainer {
+        width: calc(100vw);
+        height: calc(100vw);
+        max-width: calc(100vh - 32px - 63px);
+        max-height: calc(100vh - 32px - 63px);
+    }
 }
