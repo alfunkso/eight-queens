@@ -10,21 +10,21 @@ function Chessboard({pieces, highlights}) {
     rows.push(
         <tr key="r0">
             <Header label="" />
-            <Header label="A (0)" />
-            <Header label="B (1)" />
-            <Header label="C (2)" />
-            <Header label="D (3)" />
-            <Header label="E (4)" />
-            <Header label="F (5)" />
-            <Header label="G (6)" />
-            <Header label="H (7)" />
+            <Header label="A" />
+            <Header label="B" />
+            <Header label="C" />
+            <Header label="D" />
+            <Header label="E" />
+            <Header label="F" />
+            <Header label="G" />
+            <Header label="H" />
             <Header label="" />
         </tr>
     );
 
     for ( let i = 0; i < 8; ++i ) {
         let cells = [];
-        cells.push(<Header key={`ht${8-i}`} label={`${8-i} (${i})`} />);
+        cells.push(<Header key={`ht${8-i}`} label={`${8-i}`} />);
 
         for ( let j = 0; j < 8; ++j ) {
             cells.push(
@@ -37,7 +37,7 @@ function Chessboard({pieces, highlights}) {
                 );
         }
 
-        cells.push(<Header key={8-i} label={`${8-i} (${i})`} />);
+        cells.push(<Header key={8-i} label={`${8-i}`} />);
 
         rows.push(<tr key={`r${i+1}`}>{cells}</tr>);
     }
@@ -45,14 +45,14 @@ function Chessboard({pieces, highlights}) {
     rows.push(
         <tr key="r9">
             <Header label="" />
-            <Header label="A (0)" />
-            <Header label="B (1)" />
-            <Header label="C (2)" />
-            <Header label="D (3)" />
-            <Header label="E (4)" />
-            <Header label="F (5)" />
-            <Header label="G (6)" />
-            <Header label="H (7)" />
+            <Header label="A" />
+            <Header label="B" />
+            <Header label="C" />
+            <Header label="D" />
+            <Header label="E" />
+            <Header label="F" />
+            <Header label="G" />
+            <Header label="H" />
             <Header label="" />
         </tr>
     );
